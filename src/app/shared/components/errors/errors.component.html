@@ -1,17 +1,16 @@
-
 <div *ngFor="let item of errors | keyvalue">
-  <div [ngSwitch]="item.key">
-    <div *ngSwitchCase="'required'">
+  <div [ngSwitch]="item.key" class="text-danger fw-bold text-sm">
+    <small *ngSwitchCase="'required'">
       pole wymagane
-    </div>
-    <div *ngSwitchCase="'pattern'">
+    </small>
+    <small *ngSwitchCase="'pattern'">
       coś nie halo
-    </div>
-    <div *ngSwitchCase="'email'">
+    </small>
+    <small *ngSwitchCase="'email'">
       email not ok
-    </div>
-    <div *ngSwitchDefault>
+    </small>
+    <small *ngSwitchDefault>
       nieznay błąd
-    </div>
+    </small>
   </div>
 </div>
