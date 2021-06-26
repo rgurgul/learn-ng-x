@@ -1,3 +1,4 @@
+import { ValidationErrors } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ErrorsComponent implements OnInit {
 
-  @Input() errors?: any;
+  @Input() errors?: ValidationErrors | null;
 
   constructor() { }
 
