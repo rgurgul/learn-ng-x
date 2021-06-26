@@ -1,3 +1,5 @@
+import { SearchPipe } from './shared/pipes/search.pipe';
+import { ErrorsComponent } from './shared/components/errors/errors.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -6,7 +8,9 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ErrorsComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
