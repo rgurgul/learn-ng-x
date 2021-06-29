@@ -6,6 +6,22 @@
   </div>
   <div class="col-9">
     <router-outlet></router-outlet>
+
+
+    <div class="row">
+      <div class="col-2">
+
+      </div>
+      <div class="col-2">
+        <select class="form-control" [ngModel]="filters.value.itemsPerPage" #ipp (change)="updateFilters({itemsPerPage:+ipp.value})">
+          <option *ngFor="let item of [2,5,10]">
+            {{item}}
+          </option>
+        </select>
+      </div>
+      <div class="col-8"></div>
+    </div>
+
     <app-grid (actionEmit)="onAction($event)" [config]="config" [data]="items"></app-grid>
   </div>
 </div>

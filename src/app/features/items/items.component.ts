@@ -1,7 +1,8 @@
-import { FieldTypes } from './../../shared/utils/models';
+import { FieldTypes, ItemsFiltersModel } from './../../shared/utils/models';
 import { ItemsService } from './../../services/items.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-items',
@@ -18,14 +19,33 @@ export class ItemsComponent implements OnInit {
     { type: FieldTypes.button, text: 'remove' },
   ];
 
+  filters: BehaviorSubject<ItemsFiltersModel> = new BehaviorSubject<ItemsFiltersModel>({
+    itemsPerPage: 5,
+    currentPage: 1
+  })
+
   constructor(
     private itemsService: ItemsService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.itemsService.fetch().subscribe((resp) => {
+
+    this.filters.subscribe((val) => {
+      this.fetchItems();
+    })
+  }
+
+  private fetchItems() {
+    this.itemsService.fetch(this.filters.value).subscribe((resp) => {
       this.items = resp.data;
+    });
+  }
+
+  updateFilters(value: Object) { //{itemsPerPage:10, x:1}
+    this.filters.next({
+      ...this.filters.value,
+      ...value
     })
   }
 

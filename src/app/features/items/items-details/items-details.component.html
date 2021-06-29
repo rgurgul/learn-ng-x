@@ -1,1 +1,9 @@
 <p>items-details works!</p>
+
+{{data$|async|json}}
+
+<app-grid [data]="data|keyvalue" [config]="[{key:'value'}]"></app-grid>
+
+<div *ngFor="let item of data | keyvalue">
+  {{item|json}}
+</div>

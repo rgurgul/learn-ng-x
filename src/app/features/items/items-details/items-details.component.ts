@@ -1,6 +1,8 @@
+import { Observable } from 'rxjs';
 import { ItemsService } from './../../../services/items.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-items-details',
@@ -8,6 +10,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./items-details.component.scss']
 })
 export class ItemsDetailsComponent implements OnInit, OnDestroy {
+  data: any;
+  data$!: Observable<any>;
 
   constructor(
     private itemsService: ItemsService,
@@ -21,6 +25,11 @@ export class ItemsDetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.route.params.subscribe(({ id }) => {
 
+      this.itemsService.get(id).subscribe((resp) => {
+        this.data = resp.data;
+      })
+
+      this.data$ = this.itemsService.get(id).pipe(map((resp) => resp.data));
 
     })
   }
