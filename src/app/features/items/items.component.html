@@ -1,0 +1,11 @@
+<p>items works!</p>
+
+<div class="row">
+  <div class="col-3">
+    <app-search></app-search>
+  </div>
+  <div class="col-9">
+    <router-outlet></router-outlet>
+    <app-grid (actionEmit)="onAction($event)" [config]="config" [data]="items"></app-grid>
+  </div>
+</div>

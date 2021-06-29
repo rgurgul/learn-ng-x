@@ -5,16 +5,35 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ItemsComponent } from './features/items/items.component';
+import { WorkersComponent } from './features/workers/workers.component';
+import { ProfileComponent } from './features/profile/profile.component';
+import { RegisterComponent } from './features/register/register.component';
+import { SearchComponent } from './shared/components/search/search.component';
+import { GridComponent } from './shared/components/grid/grid.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ItemsDetailsComponent } from './features/items/items-details/items-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ErrorsComponent,
-    SearchPipe
+    SearchPipe,
+    ItemsComponent,
+    WorkersComponent,
+    ProfileComponent,
+    RegisterComponent,
+    SearchComponent,
+    GridComponent,
+    ItemsDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
