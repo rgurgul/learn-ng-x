@@ -6,11 +6,9 @@
   </div>
   <div class="col-9">
     <router-outlet></router-outlet>
-
-
     <div class="row">
       <div class="col-2">
-
+        <app-add-item></app-add-item>
       </div>
       <div class="col-2">
         <select class="form-control" [ngModel]="filters.value.itemsPerPage" #ipp (change)="updateFilters({itemsPerPage:+ipp.value})">
@@ -19,7 +17,9 @@
           </option>
         </select>
       </div>
-      <div class="col-8"></div>
+      <div class="col-8">
+        <ngb-pagination [collectionSize]="total" (pageChange)="updateFilters({currentPage: $event})" [pageSize]="filters.value.itemsPerPage" [maxSize]="8"></ngb-pagination>
+      </div>
     </div>
 
     <app-grid (actionEmit)="onAction($event)" [config]="config" [data]="items"></app-grid>

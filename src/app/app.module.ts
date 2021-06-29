@@ -14,6 +14,9 @@ import { GridComponent } from './shared/components/grid/grid.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ItemsDetailsComponent } from './features/items/items-details/items-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddItemComponent } from './features/items/add-item/add-item.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +29,17 @@ import { ItemsDetailsComponent } from './features/items/items-details/items-deta
     RegisterComponent,
     SearchComponent,
     GridComponent,
-    ItemsDetailsComponent
+    ItemsDetailsComponent,
+    AddItemComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],

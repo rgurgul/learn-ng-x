@@ -1,0 +1,6 @@
+{{f.value|json}}
+<form #f="ngForm" (submit)="onSubmit(f)">
+  <input type="text" required pattern="\w+@.+" ngModel="admin@localhost" name="username" class="form-control">
+  <input type="text" ngModel="Admin1" name="password" class="form-control">
+  <button>log in</button>
+</form>

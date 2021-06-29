@@ -23,6 +23,7 @@ export class ItemsComponent implements OnInit {
     itemsPerPage: 5,
     currentPage: 1
   })
+  total: any;
 
   constructor(
     private itemsService: ItemsService,
@@ -39,6 +40,7 @@ export class ItemsComponent implements OnInit {
   private fetchItems() {
     this.itemsService.fetch(this.filters.value).subscribe((resp) => {
       this.items = resp.data;
+      this.total = resp.total;
     });
   }
 
